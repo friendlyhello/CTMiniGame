@@ -9,19 +9,15 @@ public class UIHandler : MonoBehaviour
 {
     [SerializeField] private GameObject titleScreen;
     [SerializeField] private TMP_InputField inputName;
-    [SerializeField] private TMP_Text displayInputName;
+    // [SerializeField] private TMP_Text displayInputName;
 
-    private void Awake()
+    private void Start()
     {
         // How does var work? What should I have used instead of var?
         TMP_InputField getInput = gameObject.GetComponent<TMP_InputField>();
         
-        getInput.onEndEdit.AddListener(SubmitName);
-    }
-
-    private void Start()
-    {
         
+        getInput.onEndEdit.AddListener(SubmitName);
     }
 
     private void SubmitName(string input)

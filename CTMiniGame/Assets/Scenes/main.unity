@@ -4741,7 +4741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleScreen: {fileID: 603756324}
   inputName: {fileID: 0}
-  displayInputName: {fileID: 0}
+  displayInputName: {fileID: 711451135}
 --- !u!4 &1012454251
 Transform:
   m_ObjectHideFlags: 0
