@@ -8,21 +8,25 @@ using UnityEngine.UI;
 public class UIHandler : MonoBehaviour
 {
     [SerializeField] private GameObject titleScreen;
-    // [SerializeField] private TMP_InputField inputName;
-    // [SerializeField] private TMP_Text displayInputName;
-
+    [SerializeField] private TMP_InputField inputName;
+    [SerializeField] private TMP_Text displayInputName;
+    
     private void Start()
     {
-        // How does var work? What should I have used instead of var?
-        TMP_InputField getInput = gameObject.GetComponent<TMP_InputField>();
+        string text = inputName.GetComponent<TMP_InputField>().text;
         
-        
-        getInput.onEndEdit.AddListener(SubmitName);
+        inputName.onEndEdit.AddListener(SubmitName);
     }
 
+   
     private void SubmitName(string input)
     {
         Debug.Log(input);
+        
+        // displayInputName.text = input;
+        
+        // This is the same as above, but this is the recommended way:
+        displayInputName.SetText(input);
     }
     
     public void StartGame()
@@ -36,4 +40,6 @@ public class UIHandler : MonoBehaviour
     // What am I doing?
     //  1. InputField registers name and saves it to memory
     //  2. Play button hides title screen
-    //  3. GameOver state and Pause Menu button shows Back to Title button and Quit Button
+    //  3. GameOver state triggers the Game Over menu and displays Back
+    //     to Title button and Quit Button
+    //  4. Pause Menu button shows Back to Title button and Quit buttons
