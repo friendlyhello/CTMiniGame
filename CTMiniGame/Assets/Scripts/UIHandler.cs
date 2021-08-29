@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class UIHandler : MonoBehaviour
 {
     [SerializeField] private GameObject titleScreen;
-    [SerializeField] private TMP_InputField inputName;
+    // [SerializeField] private TMP_InputField inputName;
     // [SerializeField] private TMP_Text displayInputName;
 
     private void Start()
