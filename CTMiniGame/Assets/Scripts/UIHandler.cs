@@ -13,7 +13,7 @@ public class UIHandler : MonoBehaviour
     
     private void Start()
     {
-        string text = inputName.GetComponent<TMP_InputField>().text;
+        string input = inputName.GetComponent<TMP_InputField>().text;
         
         inputName.onEndEdit.AddListener(SubmitName);
     }
@@ -29,7 +29,7 @@ public class UIHandler : MonoBehaviour
         displayInputName.SetText(input);
     }
     
-    public void StartGame()
+    public void HideTitleMenu()
     {
         titleScreen.SetActive(false);
         

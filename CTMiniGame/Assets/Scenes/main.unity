@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 60f999a655e671e4393a9ebe7b6dd08e, type: 2}
   m_LightingSettings: {fileID: 1101931347}
 --- !u!196 &4
 NavMeshSettings:
@@ -7182,7 +7182,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1012454250}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: HideTitleMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
