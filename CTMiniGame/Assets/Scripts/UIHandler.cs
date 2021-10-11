@@ -18,6 +18,14 @@ public class UIHandler : MonoBehaviour
     
     [SerializeField]
     private TMP_Text displayInputName;
+
+    [SerializeField] 
+    private TMP_Text currentPlayerDetails;
+    
+    [SerializeField] 
+    private TMP_Text timer;
+
+    private string currentPlayerName = "";
     
     private void Start()
     {
@@ -35,6 +43,9 @@ public class UIHandler : MonoBehaviour
         
         // This is the same as above, but this is the recommended way:
         displayInputName.SetText(input);
+        currentPlayerName = input;
+        
+        UpdateCurrentNameAndScore(0);
     }
     
     public void HideTitleMenu()
@@ -50,11 +61,15 @@ public class UIHandler : MonoBehaviour
         
         // variable for set text in HUD
     }
-}
     
-    // What am I doing?
-    //  1. InputField registers name and saves it to memory
-    //  2. Play button hides title screen
-    //  3. GameOver state triggers the Game Over menu and displays Back
-    //     to Title button and Quit Button
-    //  4. Pause Menu button shows Back to Title button and Quit buttons
+    // Display name submitted and update score
+    // override for score
+
+    public void UpdateCurrentNameAndScore(int score)
+    {
+        currentPlayerDetails.SetText(currentPlayerName + " : " + score.ToString());
+    }
+}
+
+// Game Mode
+// Timer - Count up/down on Start()
