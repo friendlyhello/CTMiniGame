@@ -7,9 +7,17 @@ using UnityEngine.UI;
 
 public class UIHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject titleScreen;
-    [SerializeField] private TMP_InputField inputName;
-    [SerializeField] private TMP_Text displayInputName;
+    [SerializeField]
+    private GameObject titleScreen;
+
+    [SerializeField] 
+    private GameObject hudDisplay;
+    
+    [SerializeField] 
+    private TMP_InputField inputName;
+    
+    [SerializeField]
+    private TMP_Text displayInputName;
     
     private void Start()
     {
@@ -32,8 +40,15 @@ public class UIHandler : MonoBehaviour
     public void HideTitleMenu()
     {
         titleScreen.SetActive(false);
-        
+
         // Start game state
+    }
+
+    public void SetHudVisibility(bool isVisible)
+    {
+        hudDisplay.SetActive(isVisible);
+        
+        // variable for set text in HUD
     }
 }
     
