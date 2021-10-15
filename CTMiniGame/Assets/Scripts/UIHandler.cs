@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class UIHandler : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class UIHandler : MonoBehaviour
     private TMP_Text timer;
 
     private string currentPlayerName = "";
+
+    private float currentTime = 0.0f;
+
+    private bool isInGame = false;
     
     private void Start()
     {
@@ -34,6 +39,17 @@ public class UIHandler : MonoBehaviour
         inputName.onEndEdit.AddListener(SubmitName);
     }
 
+    private void Update()
+    {
+        if (isInGame)
+        {
+            // Start timer
+            currentTime += Time.deltaTime;
+            
+            // Update UI Text
+            timer.SetText(ConvertFloatToTime(currentTime));
+        }
+    }
    
     private void SubmitName(string input)
     {
@@ -51,10 +67,19 @@ public class UIHandler : MonoBehaviour
     public void HideTitleMenu()
     {
         titleScreen.SetActive(false);
+        isInGame = true;
 
         // Start game state
     }
 
+    string ConvertFloatToTime(float timeToDisplay)
+    {
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);  
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        return string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+    
     public void SetHudVisibility(bool isVisible)
     {
         hudDisplay.SetActive(isVisible);
@@ -65,9 +90,11 @@ public class UIHandler : MonoBehaviour
     // Display name submitted and update score
     // override for score
 
-    public void UpdateCurrentNameAndScore(int score)
+    public void UpdateCurrentNameAndScore(float score)
     {
-        currentPlayerDetails.SetText(currentPlayerName + " : " + score.ToString());
+        score = Random.Range(30.0f, 300.0f);
+        
+        currentPlayerDetails.SetText(currentPlayerName + " : " + ConvertFloatToTime(score));
     }
 }
 
